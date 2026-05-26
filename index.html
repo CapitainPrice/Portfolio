@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>GUILHERME GONÇALVES · PORTFOLIO</title>
+	<link rel="stylesheet" href="style/css/portfolio.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+	<!-- SPLASH SCREEN -->
+	<div id="splash-screen">
+		<video id="intro-video" autoplay muted playsinline>
+			<source src="assets/video/intro.mp4" type="video/mp4" />
+		</video>
+		<audio id="splash-audio" loop>
+			<source src="assets/sounds/boot_01.mp3" type="audio/mpeg" />
+		</audio>
+		<div id="splash-overlay">
+			<div class="splash-loader">
+				<div class="splash-ring"></div>
+				<div class="splash-ring splash-ring--2"></div>
+				<span class="splash-text" data-pt="INICIALIZANDO SISTEMA..." data-en="INITIALIZING SYSTEM...">Carregando Informações...</span>
+			</div>
+		</div>
+		<button id="splash-skip" data-pt="PULAR INTRO" data-en="SKIP INTRO">PULAR INTRO</button>
+	</div>
+
+	<!-- MAIN PORTFOLIO -->
+	<div id="portfolio" class="hidden">
+
+		<!-- TOP NAV BAR -->
+		<nav id="topbar">
+			<div class="topbar-left topbar-nav">
+				<a href="#about" class="nav-link" data-pt="SOBRE" data-en="ABOUT">SOBRE</a>
+				<a href="#projects" class="nav-link" data-pt="PROJETOS" data-en="PROJECTS">PROJETOS</a>
+				<a href="#skills" class="nav-link" data-pt="SKILLS" data-en="SKILLS">SKILLS</a>
+				<a href="#certs" class="nav-link" data-pt="CERTS" data-en="CERTS">CERTS</a>
+				<a href="#contact" class="nav-link" data-pt="CONTATO" data-en="CONTACT">CONTATO</a>
+			</div>
+
+			<div class="topbar-right">
+				<button id="mobile-menu-btn" class="hud-btn mobile-only" aria-label="Menu">
+					<span>☰</span>
+				</button>
+				<button id="lang-toggle" class="hud-btn" title="Toggle Language">
+					<span id="lang-icon">🌐</span>
+					<span id="lang-label">EN</span>
+				</button>
+				<button id="print-btn" class="hud-btn" title="Imprimir Currículo">
+					<span>⬇</span>
+					<span data-pt="CURRÍCULO" data-en="RESUME">CURRÍCULO</span>
+				</button>
+			</div>
+		</nav>
+
+		<!-- CANVAS BACKGROUND -->
+		<canvas id="hud-canvas"></canvas>
+
+		<!-- HERO SECTION -->
+		<section id="hero">
+			<div id="hero-video-container">
+				<video id="hero-video" autoplay muted playsinline>
+					<source src="assets/video/intro.mp4" type="video/mp4" />
+				</video>
+				<div id="hero-video-overlay"></div>
+			</div>
+
+			<div id="hero-panel">
+				<div class="hero-scan-line"></div>
+				<div class="hero-avatar-wrap">
+					<div class="avatar-ring"></div>
+					<img src="assets/imgs/profile.png" alt="Guilherme Gonçalves" class="hero-avatar" loading="eager"
+						onerror="this.style.display='none';document.querySelector('.avatar-placeholder').style.display='flex'" />
+					<div class="avatar-placeholder">GG</div>
+				</div>
+				<h1 class="hero-name">GUILHERME<br/><span class="accent">GONÇALVES</span></h1>
+				<div class="hero-role">
+					<span class="blink-cursor">▮</span>
+					<span class="role-text" data-pt="DESENVOLVEDOR WEB · ESTUDANTE ADS" data-en="WEB DEVELOPER · ADS STUDENT">DESENVOLVEDOR WEB · ESTUDANTE ADS</span>
+				</div>
+				<p class="hero-summary"
+					data-pt="Estudante de Análise e Desenvolvimento de Sistemas com formação técnica pelo SENAI e experiência prática no desenvolvimento de aplicações web"
+					data-en="Systems Analysis and Development student with technical background from SENAI and hands-on experience in web application development">
+					Estudante de Análise e Desenvolvimento de Sistemas com formação técnica pelo SENAI e experiência prática no desenvolvimento de aplicações web
+				</p>
+				<div class="hero-meta">
+					<div class="meta-item">
+						<span class="meta-icon">◉</span>
+						<span data-pt="Taubaté – SP" data-en="Taubaté – SP">Taubaté – SP</span>
+					</div>
+					<div class="meta-item">
+						<span class="meta-dot available"></span>
+						<span data-pt="DISPONÍVEL" data-en="AVAILABLE">DISPONÍVEL</span>
+					</div>
+				</div>
+				<div class="hero-actions">
+					<a href="https://wa.me/5512991910939" target="_blank" class="action-btn action-btn--whatsapp">
+						<span>📱</span>
+						<span data-pt="WHATSAPP" data-en="WHATSAPP">WHATSAPP</span>
+					</a>
+					<a href="mailto:contatoguilhermegoncalves2026@gmail.com" class="action-btn action-btn--email">
+						<span>✉</span>
+						<span data-pt="E-MAIL" data-en="E-MAIL">E-MAIL</span>
+					</a>
+					<a href="https://www.linkedin.com/in/guilherme-goncalves-86a0323ab/" target="_blank" class="action-btn action-btn--linkedin">
+						<span>in</span>
+						<span>LINKEDIN</span>
+					</a>
+					<a href="https://github.com/CapitainPrice" target="_blank" class="action-btn action-btn--github">
+						<span>⌥</span>
+						<span>GITHUB</span>
+					</a>
+				</div>
+			</div>
+			<div class="corner corner--tl"></div>
+			<div class="corner corner--tr"></div>
+			<div class="corner corner--bl"></div>
+			<div class="corner corner--br"></div>
+		</section>
+
+		<!-- ABOUT SECTION -->
+		<section id="about" class="section">
+			<div class="section-header">
+				<div class="section-tag">01</div>
+				<h2 class="section-title" data-pt="SOBRE MIM" data-en="ABOUT ME">SOBRE MIM</h2>
+				<div class="section-line"></div>
+			</div>
+
+			<!-- Cards: formação + status -->
+			<div class="about-grid">
+				<div class="about-card glass-card fade-in">
+					<div class="card-label" data-pt="FORMAÇÃO ACADÊMICA" data-en="EDUCATION">FORMAÇÃO ACADÊMICA</div>
+					<div class="education-list">
+						<div class="edu-item active">
+							<div class="edu-status active" data-pt="EM CURSO" data-en="IN PROGRESS">EM CURSO</div>
+							<div class="edu-course">TECNÓLOGO EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS</div>
+							<div class="edu-inst">Faculdade SENAI — Taubaté/SP</div>
+							<div class="edu-period">2026 — Conclusão: 2027</div>
+						</div>
+						<div class="edu-divider"></div>
+						<div class="edu-item done">
+							<div class="edu-status done" data-pt="CONCLUÍDO" data-en="COMPLETED">CONCLUÍDO</div>
+							<div class="edu-course">TÉCNICO EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS</div>
+							<div class="edu-inst">SENAI — Cruzeiro/SP</div>
+							<div class="edu-period">2024 — 2025</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="about-card glass-card fade-in">
+					<div class="card-label" data-pt="STATUS DO SISTEMA" data-en="SYSTEM STATUS">STATUS DO SISTEMA</div>
+					<div class="system-stats">
+						<div class="stat-row">
+							<span data-pt="Localização" data-en="Location">Localização</span>
+							<span class="stat-val">Taubaté, SP</span>
+						</div>
+						<div class="stat-row">
+							<span>Status</span>
+							<span class="stat-val available" data-pt="Disponível" data-en="Available">Disponível</span>
+						</div>
+						<div class="stat-row">
+							<span>GitHub</span>
+							<span class="stat-val"><a href="https://github.com/CapitainPrice" target="_blank">CapitainPrice</a></span>
+						</div>
+						<div class="stat-row">
+							<span>LinkedIn</span>
+							<span class="stat-val"><a href="https://www.linkedin.com/in/guilherme-goncalves-86a0323ab/" target="_blank">guilherme-goncalves</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- TIMELINE — scroll-activated, below the cards -->
+			<div class="timeline-section-wrap">
+				<div class="timeline-section-label" data-pt="TRAJETÓRIA" data-en="JOURNEY">TRAJETÓRIA</div>
+
+				<div class="timeline" id="timeline">
+					<!-- Vertical animated rail -->
+					<div class="timeline-rail">
+						<div class="timeline-rail-fill" id="timeline-rail-fill"></div>
+					</div>
+
+					<div class="timeline-item" data-year="2024">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2024</div>
+							<div class="timeline-title" data-pt="Início da Jornada" data-en="Journey Begins">Início da Jornada</div>
+							<div class="timeline-desc"
+								data-pt="Início do Técnico em ADS no SENAI Cruzeiro, primeiros contatos com desenvolvimento de sistemas e lógica de programação."
+								data-en="Started Technical degree in ADS at SENAI Cruzeiro, first contact with systems development and programming logic.">
+								Início do Técnico em ADS no SENAI Cruzeiro, primeiros contatos com desenvolvimento de sistemas e lógica de programação.
+							</div>
+						</div>
+					</div>
+
+					<div class="timeline-item" data-year="2025">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2025</div>
+							<div class="timeline-title" data-pt="Técnico Concluído" data-en="Technical Degree Completed">Técnico Concluído</div>
+							<div class="timeline-desc"
+								data-pt="Conclusão do curso Técnico em ADS no SENAI Cruzeiro, com foco em desenvolvimento full-stack e projetos práticos."
+								data-en="Completed Technical degree in ADS at SENAI Cruzeiro, focusing on full-stack development and practical projects.">
+								Conclusão do curso Técnico em ADS no SENAI Cruzeiro, com foco em desenvolvimento full-stack e projetos práticos.
+							</div>
+						</div>
+					</div>
+
+					<div class="timeline-item" data-year="2026">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2026</div>
+							<div class="timeline-title" data-pt="Ingresso na Faculdade" data-en="College Enrollment">Ingresso na Faculdade</div>
+							<div class="timeline-desc"
+								data-pt="Início do Tecnólogo em Análise e Desenvolvimento de Sistemas na Faculdade SENAI Taubaté, aprofundando conhecimentos em engenharia de software."
+								data-en="Started Technology degree in Systems Analysis and Development at Faculdade SENAI Taubaté, deepening software engineering knowledge.">
+								Início do Tecnólogo em Análise e Desenvolvimento de Sistemas na Faculdade SENAI Taubaté, aprofundando conhecimentos em engenharia de software.
+							</div>
+						</div>
+					</div>
+
+					<div class="timeline-item tl-active" data-year="2026+">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2026+</div>
+							<div class="timeline-title" data-pt="Em Evolução" data-en="Evolving">Em Evolução</div>
+							<div class="timeline-desc"
+								data-pt="Cursando Tecnólogo na Faculdade SENAI Taubaté, construindo projetos reais e buscando oportunidade de estágio em TI."
+								data-en="Studying Technology at Faculdade SENAI Taubaté, building real projects and seeking an IT internship opportunity.">
+								Cursando Tecnólogo na Faculdade SENAI Taubaté, construindo projetos reais e buscando oportunidade de estágio em TI.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PROJECTS SECTION -->
+		<section id="projects" class="section">
+			<div class="section-header">
+				<div class="section-tag">02</div>
+				<h2 class="section-title" data-pt="PROJETOS" data-en="PROJECTS">PROJETOS</h2>
+				<div class="section-line"></div>
+			</div>
+
+			<!-- CARROSSEL DE IMAGENS -->
+			<div class="carousel fade-in" id="project-carousel">
+				<div class="carousel-track" id="carousel-track">
+					<div class="carousel-slide"><img src="assets/imgs/p01.svg" alt="Mario Head" loading="lazy" /></div>
+					<div class="carousel-slide"><img src="assets/imgs/p02.svg" alt="ZenTask" loading="lazy" /></div>
+					<div class="carousel-slide"><img src="assets/imgs/p03.svg" alt="Plataforma de Cursos" loading="lazy" /></div>
+					<div class="carousel-slide"><img src="assets/imgs/p04.svg" alt="Jarvis HUD" loading="lazy" /></div>
+					<!-- Duplicatas para loop infinito -->
+					<div class="carousel-slide"><img src="assets/imgs/p01.svg" alt="Mario Head" loading="lazy" /></div>
+					<div class="carousel-slide"><img src="assets/imgs/p02.svg" alt="ZenTask" loading="lazy" /></div>
+					<div class="carousel-slide"><img src="assets/imgs/p03.svg" alt="Plataforma de Cursos" loading="lazy" /></div>
+					<div class="carousel-slide"><img src="assets/imgs/p04.svg" alt="Jarvis HUD" loading="lazy" /></div>
+				</div>
+				<button class="carousel-btn carousel-btn--prev" id="carousel-prev" aria-label="Anterior">&#8249;</button>
+				<button class="carousel-btn carousel-btn--next" id="carousel-next" aria-label="Próximo">&#8250;</button>
+				<div class="carousel-dots" id="carousel-dots">
+					<span class="carousel-dot active" data-index="0"></span>
+					<span class="carousel-dot" data-index="1"></span>
+					<span class="carousel-dot" data-index="2"></span>
+					<span class="carousel-dot" data-index="3"></span>
+				</div>
+				<div class="carousel-counter" id="carousel-counter">01 / 04</div>
+			</div>
+
+			<!-- TIMELINE DE PROJETOS -->
+			<div class="timeline-section-wrap" style="margin-top:3rem">
+				<div class="timeline-section-label" data-pt="REGISTRO DE PROJETOS" data-en="PROJECT LOG">REGISTRO DE PROJETOS</div>
+
+				<div class="timeline" id="projects-timeline">
+					<div class="timeline-rail">
+						<div class="timeline-rail-fill" id="projects-rail-fill"></div>
+					</div>
+
+					<div class="timeline-item" data-year="2024">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2024</div>
+							<div class="timeline-title">PLATAFORMA DE CURSOS</div>
+							<div class="timeline-desc"
+								data-pt="Plataforma web completa para venda de cursos com painel administrativo, sistema de autenticação e integração com gateway de pagamento."
+								data-en="Complete web platform for course sales with admin panel, authentication system and payment gateway integration.">
+								Plataforma web completa para venda de cursos com painel administrativo, sistema de autenticação e integração com gateway de pagamento.
+							</div>
+							<div class="project-stack" style="margin-top:0.8rem">
+								<span class="stack-tag">PHP</span>
+								<span class="stack-tag">MySQL</span>
+								<span class="stack-tag">HTML5</span>
+								<span class="stack-tag">CSS3</span>
+								<span class="stack-tag">JavaScript</span>
+							</div>
+							<div class="project-footer" style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--glass-border)">
+								<span class="project-status active" data-pt="ATIVO" data-en="ACTIVE">ATIVO</span>
+								<a href="https://dgconsultoriasst.com/" target="_blank" class="project-link" data-pt="ACESSAR" data-en="ACCESS">ACESSAR ↗</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="timeline-item" data-year="2026">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2026</div>
+							<div class="timeline-title">MARIO HEAD</div>
+							<div class="timeline-desc"
+								data-pt="Jogo interativo com multiverso de personagens, desenvolvido com HTML5 Canvas e animações customizadas em JavaScript puro."
+								data-en="Interactive game with character multiverse, developed with HTML5 Canvas and custom animations in vanilla JavaScript.">
+								Jogo interativo com multiverso de personagens, desenvolvido com HTML5 Canvas e animações customizadas em JavaScript puro.
+							</div>
+							<div class="project-stack" style="margin-top:0.8rem">
+								<span class="stack-tag">HTML5</span>
+								<span class="stack-tag">CSS3</span>
+								<span class="stack-tag">JavaScript</span>
+							</div>
+							<div class="project-footer" style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--glass-border)">
+								<span class="project-status active" data-pt="ATIVO" data-en="ACTIVE">ATIVO</span>
+								<a href="https://capitainprice.github.io/JogoTuba/Project/index.html" target="_blank" class="project-link" data-pt="ACESSAR" data-en="ACCESS">ACESSAR ↗</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="timeline-item" data-year="2026">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2026</div>
+							<div class="timeline-title">ZENTASK</div>
+							<div class="timeline-desc"
+								data-pt="Otimizador de tarefas do dia a dia com integração Firebase para persistência de dados em tempo real e autenticação de usuários."
+								data-en="Daily task optimizer with Firebase integration for real-time data persistence and user authentication.">
+								Otimizador de tarefas do dia a dia com integração Firebase para persistência de dados em tempo real e autenticação de usuários.
+							</div>
+							<div class="project-stack" style="margin-top:0.8rem">
+								<span class="stack-tag">HTML5</span>
+								<span class="stack-tag">CSS3</span>
+								<span class="stack-tag">JavaScript</span>
+								<span class="stack-tag">Firebase</span>
+							</div>
+							<div class="project-footer" style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--glass-border)">
+								<span class="project-status active" data-pt="ATIVO" data-en="ACTIVE">ATIVO</span>
+								<a href="https://capitainprice.github.io/ZenTask-Gerenciador-De-Tarefas/index.html" target="_blank" class="project-link" data-pt="ACESSAR" data-en="ACCESS">ACESSAR ↗</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="timeline-item tl-active" data-year="2026+">
+						<div class="timeline-dot"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2026+</div>
+							<div class="timeline-title">JARVIS — HUD INTERFACE IA</div>
+							<div class="timeline-desc"
+								data-pt="Dashboard interativo inspirado no JARVIS da Marvel, com visualizações em tempo real via Canvas API e interface de comando por voz. Em desenvolvimento ativo."
+								data-en="Interactive dashboard inspired by Marvel's JARVIS, with real-time visualizations via Canvas API and voice command interface. Under active development.">
+								Dashboard interativo inspirado no JARVIS da Marvel, com visualizações em tempo real via Canvas API e interface de comando por voz. Em desenvolvimento ativo.
+							</div>
+							<div class="project-stack" style="margin-top:0.8rem">
+								<span class="stack-tag">HTML5</span>
+								<span class="stack-tag">CSS3</span>
+								<span class="stack-tag">JavaScript</span>
+								<span class="stack-tag">Canvas API</span>
+							</div>
+							<div class="project-footer" style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--glass-border)">
+								<span class="project-status study" data-pt="EM ESTUDO" data-en="IN DEV">EM ESTUDO</span>
+								<span class="project-link disabled" data-pt="EM DEV" data-en="IN DEV">EM DEV</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SKILLS SECTION -->
+		<section id="skills" class="section">
+			<div class="section-header">
+				<div class="section-tag">03</div>
+				<h2 class="section-title" data-pt="HABILIDADES" data-en="SKILLS">HABILIDADES</h2>
+				<div class="section-line"></div>
+			</div>
+			<div class="skills-container">
+				<div class="skills-group fade-in">
+					<div class="group-label" data-pt="DESENVOLVIMENTO WEB" data-en="WEB DEVELOPMENT">DESENVOLVIMENTO WEB</div>
+					<div class="skill-item">
+						<div class="skill-meta">
+							<span class="skill-name">HTML5</span>
+							<span class="skill-pct">90%</span>
+						</div>
+						<div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+					</div>
+					<div class="skill-item">
+						<div class="skill-meta">
+							<span class="skill-name">CSS3</span>
+							<span class="skill-pct">85%</span>
+						</div>
+						<div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div>
+					</div>
+					<div class="skill-item">
+						<div class="skill-meta">
+							<span class="skill-name">JavaScript</span>
+							<span class="skill-pct">75%</span>
+						</div>
+						<div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
+					</div>
+					<div class="skill-item">
+						<div class="skill-meta">
+							<span class="skill-name">PHP</span>
+							<span class="skill-pct">70%</span>
+						</div>
+						<div class="skill-bar"><div class="skill-fill" data-pct="70"></div></div>
+					</div>
+				</div>
+				<div class="skills-group fade-in">
+					<div class="group-label" data-pt="BANCO DE DADOS & FERRAMENTAS" data-en="DATABASE & TOOLS">BANCO DE DADOS & FERRAMENTAS</div>
+					<div class="skill-item">
+						<div class="skill-meta">
+							<span class="skill-name">MySQL</span>
+							<span class="skill-pct">78%</span>
+						</div>
+						<div class="skill-bar"><div class="skill-fill" data-pct="78"></div></div>
+					</div>
+					<div class="skill-item">
+						<div class="skill-meta">
+							<span class="skill-name">Git</span>
+							<span class="skill-pct">72%</span>
+						</div>
+						<div class="skill-bar"><div class="skill-fill" data-pct="72"></div></div>
+					</div>
+					<div class="group-label" style="margin-top:2rem" data-pt="REDES & INFRAESTRUTURA" data-en="NETWORKS & INFRA">REDES & INFRAESTRUTURA</div>
+					<div class="skill-item">
+						<div class="skill-meta">
+							<span class="skill-name">CCNA — Redes</span>
+							<span class="skill-pct">🏅</span>
+						</div>
+						<div class="skill-bar"><div class="skill-fill" data-pct="65"></div></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CERTIFICATIONS SECTION — TIMELINE -->
+		<section id="certs" class="section">
+			<div class="section-header">
+				<div class="section-tag">04</div>
+				<h2 class="section-title" data-pt="CERTIFICAÇÕES" data-en="CERTIFICATIONS">CERTIFICAÇÕES</h2>
+				<div class="section-line"></div>
+			</div>
+
+			<div class="timeline" id="certs-timeline">
+				<div class="timeline-rail">
+					<div class="timeline-rail-fill" id="certs-rail-fill"></div>
+				</div>
+
+				<div class="timeline-item" data-year="2025">
+					<div class="timeline-dot" style="background:var(--accent);border-color:transparent;box-shadow:0 0 12px var(--accent-dim)"></div>
+					<div class="timeline-content">
+						<div class="timeline-year">2025</div>
+						<div class="timeline-title">CCNA: INTRODUCTION TO NETWORKS</div>
+						<div class="timeline-desc" style="margin-bottom:0.8rem">
+							<span style="color:rgba(255,255,255,0.25);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:3px">CISCO NETWORKING ACADEMY</span>
+						</div>
+						<a href="https://www.credly.com/badges/1a073aef-c649-40bf-9a6a-c83d0808ef04/public_url" target="_blank" class="cert-badge-wrap" style="margin-top:0.5rem;display:inline-block" title="CCNA Badge">
+							<img src="https://images.credly.com/size/340x340/images/9e57c729-07b4-4667-b839-6d7e7c0a6b2f/ccna-introduction-to-networks.png" alt="CCNA: Introduction to Networks" width="110" height="110" style="border-radius:8px;filter:brightness(0.9)" loading="lazy" />
+						</a>
+						<div style="margin-top:0.8rem">
+							<a href="https://www.credly.com/badges/1a073aef-c649-40bf-9a6a-c83d0808ef04/public_url" target="_blank" class="cert-link" data-pt="VER BADGE ↗" data-en="VIEW BADGE ↗">VER BADGE ↗</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="timeline-item" data-year="2024">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<div class="timeline-year">2024</div>
+						<div class="timeline-title" data-pt="LGPD — Lei Geral de Proteção de Dados" data-en="LGPD — General Data Protection Law">LGPD — Lei Geral de Proteção de Dados</div>
+						<div class="timeline-desc">
+							<span style="color:rgba(255,255,255,0.25);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:3px">SENAI</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="timeline-item" data-year="2024">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<div class="timeline-year">2024</div>
+						<div class="timeline-title" data-pt="Desvendando o 5G" data-en="Unveiling 5G">Desvendando o 5G</div>
+						<div class="timeline-desc">
+							<span style="color:rgba(255,255,255,0.25);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:3px">SENAI</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="timeline-item" data-year="2024">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<div class="timeline-year">2024</div>
+						<div class="timeline-title" data-pt="Segurança no Trabalho" data-en="Workplace Safety">Segurança no Trabalho</div>
+						<div class="timeline-desc">
+							<span style="color:rgba(255,255,255,0.25);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:3px">SENAI</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTACT SECTION -->
+		<section id="contact" class="section">
+			<div class="section-header">
+				<div class="section-tag">05</div>
+				<h2 class="section-title" data-pt="CONTATO" data-en="CONTACT">CONTATO</h2>
+				<div class="section-line"></div>
+			</div>
+
+			<div class="contact-intro fade-in">
+				<p class="contact-intro-text" data-pt="Vamos trabalhar juntos? Estou disponível para oportunidades de estágio em TI e projetos freelancer." data-en="Let's work together? I'm available for IT internship opportunities and freelance projects.">Vamos trabalhar juntos? Estou disponível para oportunidades de estágio em TI e projetos freelancer.</p>
+				<div class="contact-status-line">
+					<span class="meta-dot available"></span>
+					<span class="contact-status-text" data-pt="DISPONÍVEL PARA CONTRATAÇÃO" data-en="AVAILABLE FOR HIRE">DISPONÍVEL PARA CONTRATAÇÃO</span>
+				</div>
+			</div>
+
+			<div class="contact-grid">
+				<a href="https://wa.me/5512991910939" target="_blank" class="contact-card fade-in">
+					<div class="contact-icon-wrap contact-icon--whatsapp">
+						<svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.103 1.516 5.825L.054 23.57a.5.5 0 00.613.613l5.745-1.462A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.318-1.536l-.378-.229-3.693.94.94-3.693-.229-.378A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+					</div>
+					<div class="contact-label">WhatsApp</div>
+					<div class="contact-val" data-pt="Enviar mensagem" data-en="Send message">Enviar mensagem</div>
+					<div class="contact-arrow">↗</div>
+				</a>
+				<a href="mailto:contatoguilhermegoncalves2026@gmail.com" class="contact-card fade-in">
+					<div class="contact-icon-wrap contact-icon--email">
+						<svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+					</div>
+					<div class="contact-label">E-mail</div>
+					<div class="contact-val">contatoguilhermegoncalves2026@gmail.com</div>
+					<div class="contact-arrow">↗</div>
+				</a>
+				<a href="https://www.linkedin.com/in/guilherme-goncalves-86a0323ab/" target="_blank" class="contact-card fade-in">
+					<div class="contact-icon-wrap contact-icon--linkedin">
+						<svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.24 1.3v-1.12h-2.53v8.38h2.53v-4.82a1.68 1.68 0 011.68-1.68.9.9 0 01.9.9v5.6h2.53zM7.58 8.56a1.56 1.56 0 100-3.12 1.56 1.56 0 000 3.12zM8.84 18.5V10.12H6.31V18.5h2.53z"/></svg>
+					</div>
+					<div class="contact-label">LinkedIn</div>
+					<div class="contact-val">guilherme-goncalves</div>
+					<div class="contact-arrow">↗</div>
+				</a>
+				<a href="https://github.com/CapitainPrice" target="_blank" class="contact-card fade-in">
+					<div class="contact-icon-wrap contact-icon--github">
+						<svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.748-1.026 2.748-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+					</div>
+					<div class="contact-label">GitHub</div>
+					<div class="contact-val">CapitainPrice</div>
+					<div class="contact-arrow">↗</div>
+				</a>
+			</div>
+		</section>
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<div class="footer-line"></div>
+			<div class="footer-grid">
+				<div class="footer-col">
+					<div class="footer-brand">GUILHERME<span class="accent">.DEV</span></div>
+					<div class="footer-tagline" data-pt="Desenvolvedor Web · Estudante ADS" data-en="Web Developer · ADS Student">Desenvolvedor Web · Estudante ADS</div>
+				</div>
+				<div class="footer-col">
+					<div class="footer-col-label" data-pt="NAVEGAÇÃO" data-en="NAVIGATION">NAVEGAÇÃO</div>
+					<a href="#about" class="footer-link" data-pt="Sobre" data-en="About">Sobre</a>
+					<a href="#projects" class="footer-link" data-pt="Projetos" data-en="Projects">Projetos</a>
+					<a href="#skills" class="footer-link" data-pt="Skills" data-en="Skills">Skills</a>
+					<a href="#certs" class="footer-link" data-pt="Certificações" data-en="Certifications">Certificações</a>
+					<a href="#contact" class="footer-link" data-pt="Contato" data-en="Contact">Contato</a>
+				</div>
+				<div class="footer-col">
+					<div class="footer-col-label" data-pt="REDES SOCIAIS" data-en="SOCIAL">REDES SOCIAIS</div>
+					<a href="https://github.com/CapitainPrice" target="_blank" class="footer-link">GitHub</a>
+					<a href="https://www.linkedin.com/in/guilherme-goncalves-86a0323ab/" target="_blank" class="footer-link">LinkedIn</a>
+					<a href="https://wa.me/5512991910939" target="_blank" class="footer-link">WhatsApp</a>
+				</div>
+				<div class="footer-col">
+					<div class="footer-col-label" data-pt="CONTATO" data-en="CONTACT">CONTATO</div>
+					<a href="mailto:contatoguilhermegoncalves2026@gmail.com" class="footer-link footer-email">contatoguilhermegoncalves2026@gmail.com</a>
+					<span class="footer-link" data-pt="Taubaté, SP — Brasil" data-en="Taubaté, SP — Brazil">Taubaté, SP — Brasil</span>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<span class="footer-copy">&copy; 2026 GUILHERME GONÇALVES</span>
+				<span class="footer-built" data-pt="Construído com dedicação e café ☕" data-en="Built with dedication and coffee ☕">Construído com dedicação e café ☕</span>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- PRINT OVERLAY -->
+	<div id="print-overlay">
+		<div class="print-msg glass-card">
+			<div class="cv-icon">📄</div>
+			<h3 class="cv-title" data-pt="BAIXAR CURRÍCULO" data-en="DOWNLOAD RESUME">BAIXAR CURRÍCULO</h3>
+			<p class="cv-desc" data-pt="Clique no botão abaixo para baixar seu currículo em PDF" data-en="Click the button below to download your resume as PDF">Clique no botão abaixo para baixar seu currículo em PDF</p>
+			<div class="print-actions">
+				<a id="print-cv-link" href="assets/cv/Guilherme_Emanuel_Goncalves_Estagio_TI.pdf" download="Guilherme_Goncalves_Curriculo.pdf" class="hud-btn hud-btn--accent cv-download-btn" data-pt="⬇ BAIXAR PDF" data-en="⬇ DOWNLOAD PDF">
+					<span>⬇</span>
+					<span data-pt="BAIXAR PDF" data-en="DOWNLOAD PDF">BAIXAR PDF</span>
+				</a>
+				<button id="print-close" class="hud-btn" data-pt="FECHAR" data-en="CLOSE">
+					<span>✕</span>
+					<span data-pt="FECHAR" data-en="CLOSE">FECHAR</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="style/js/portfolio.js"></script>
+
+</body>
+</html>
